@@ -1,0 +1,28 @@
+{
+  "title": "Camera di Eliseo",
+  "homeassistant_url": "http://192.168.1.xxx:8123/api/",
+  "homeassistant_token": "",
+  "sections": [
+    {
+      "title": "Scenes",
+	  "small": true,
+      "devices": [
+        { "id": "scene.bedroom_all_off" },
+        { "id": "scene.bedroom_study", "name": "Studio" },
+        { "id": "scene.bedroom_entertainment", "name": "Entertainment" },
+        { "id": "scene.bedroom_nightlight", "name": "Nightlight" }
+      ]
+    },
+    {
+      "title": "Favorite Accessories",
+      "devices": [
+        { "id": "light.bedroom_ceiling", "name": "Lampadario" },
+        { "id": "light.bedroom_bedside", "name": "Comodino" },
+        { "id": "switch.bedroom_desk", "name": "Scrivania" },
+        { "id": "light.bedroom_accent_monitor", "name": "Monitor" },
+        { "id": "switch.bedroom_air_freshener", "name": "Profumatore" },
+        { "id": "media_player.bedroom_speaker", "name": "Speaker" }
+      ]
+    }
+  ]
+}
