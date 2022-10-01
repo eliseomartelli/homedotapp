@@ -5,7 +5,7 @@
   "sections": [
     {
       "title": "Scenes",
-	  "small": true,
+      "small": true,
       "devices": [
         { "id": "scene.bedroom_all_off" },
         { "id": "scene.bedroom_study", "name": "Studio" },

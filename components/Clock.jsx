@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Clock extends Component {
   constructor(props) {
     super(props);
-    this.state = { time: "", date: "" };
+    this.state = { date: new Date().toISOString() };
   }
   componentDidMount() {
     this.intervalID = setInterval(() => {
@@ -13,8 +13,8 @@ class Clock extends Component {
   tick() {
     let date = new Date();
     this.setState({
-      time: date.toLocaleTimeString("it-IT", { timeStyle: "short" }),
-      date: date.toLocaleDateString("it-IT"),
+      date: date.toLocaleDateString('en-US', {dateStyle: 'medium'}),
+      time: date.toLocaleTimeString('it-IT', {minute: '2-digit', hour: '2-digit'}),
     });
   }
   componentWillUnmount() {

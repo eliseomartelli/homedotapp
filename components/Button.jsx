@@ -3,12 +3,31 @@ import { serviceFromId } from "../lib/serviceFromId.js";
 import { updateState, callService } from "../lib/state.js";
 import config from "../config.json";
 
+const ICONS = {
+  light: {
+    on: "lightbulb.fill@2x.png",
+    off: "lightbulb@2x.png",
+  },
+  switch: {
+    on: "bolt.fill@2x.png",
+    off: "bolt@2x.png",
+  },
+  media_player: {
+    playing: "pause.circle@2x.png",
+    idle: "homepod.and.homepodmini.fill@2x.png",
+    off: "homepod.and.homepodmini.fill@2x.png",
+  }
+}
+
 export class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.service = serviceFromId(this.props.id);
     this.isScene = this.props.id.includes("scene");
+    this.type = this.props.id.split(".")[0];
+    this.touchStart = Number.MIN_VALUE;
+    this.touchEnd = Number.MIN_VALUE;
   }
   componentDidMount() {
     this.intervalID = setInterval(() => {
@@ -30,12 +49,14 @@ export class Button extends Component {
       this.setState(res);
     });
   }
+
+
   render() {
     const classNames = [
-      "p-4 rounded-xl transition-all duration-500 mx-1  mb-4 flex flex-col items-baseline",
+      "p-4 rounded-xl transition-all duration-500 mx-1 mb-4 flex flex-row items-center",
       this.state.state === "on" || this.state.state === "playing"
         ? "bg-white text-black"
-        : "bg-black text-white opacity-75",
+        : "bg-black bg-opacity-40 text-white",
     ];
     return (
       <div
@@ -50,6 +71,12 @@ export class Button extends Component {
           this.fetchState();
         }}
       >
+        {!this.isScene &&
+          <div className={`bg-black ${(this.state.state === "on" || this.state.state === "playing")?"bg-opacity-75" : "bg-opacity-50"} h-8 w-8 rounded-full flex items-center justify-center mr-4`}>
+            <img src={`/icons/${(ICONS[this.type] ?? ICONS.light)[this.state.state]}`} className="block h-4 w-4 object-contain"/>
+          </div>
+        }
+        <div>
         <p className="font-bold flex-grow">
           {this.props.name
             ? this.props.name
@@ -58,8 +85,9 @@ export class Button extends Component {
         {this.isScene ? (
           <></>
         ) : (
-          <p className="opacity-50 uppercase">{this.state.state}</p>
+          <p className="opacity-50 capitalize">{this.state.state}</p>
         )}
+        </div>
       </div>
     );
   }
