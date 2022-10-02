@@ -75,7 +75,7 @@ export class Button extends Component {
         {!this.isScene &&
           <div className={`bg-black ${(this.state.state === "on" || this.state.state === "playing")?"bg-opacity-75" : "bg-opacity-50"} h-12 w-12 rounded-full flex items-center justify-center mr-2`}>
             <img src={`/icons/${(ICONS[this.type] ?? ICONS.light)[this.state.state]}`} className="block h-6 w-6 object-contain" style={{
-              filter: this.state.state === "on" ? "brightness(0) saturate(100%) invert(95%) sepia(27%) saturate(3194%) hue-rotate(345deg) brightness(96%) contrast(111%)" : "",
+              filter: this.state.state === "on" ? "brightness(0) saturate(100%) invert(77%) sepia(53%) saturate(2500%) hue-rotate(359deg) brightness(109%) contrast(102%)" : "",
             }}/>
           </div>
         }
