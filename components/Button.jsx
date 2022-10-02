@@ -7,6 +7,7 @@ const ICONS = {
   light: {
     on: "lightbulb.fill@2x.png",
     off: "lightbulb@2x.png",
+    unavailable: "lightbulb@2x.png",
   },
   switch: {
     on: "bolt.fill@2x.png",
@@ -72,8 +73,8 @@ export class Button extends Component {
         }}
       >
         {!this.isScene &&
-          <div className={`bg-black ${(this.state.state === "on" || this.state.state === "playing")?"bg-opacity-75" : "bg-opacity-50"} h-8 w-8 rounded-full flex items-center justify-center mr-4`}>
-            <img src={`/icons/${(ICONS[this.type] ?? ICONS.light)[this.state.state]}`} className="block h-4 w-4 object-contain"/>
+          <div className={`bg-black ${(this.state.state === "on" || this.state.state === "playing")?"bg-opacity-75" : "bg-opacity-50"} h-12 w-12 rounded-full flex items-center justify-center mr-4`}>
+            <img src={`/icons/${(ICONS[this.type] ?? ICONS.light)[this.state.state]}`} className="block h-6 w-6 object-contain"/>
           </div>
         }
         <div>
