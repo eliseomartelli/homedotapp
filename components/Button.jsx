@@ -15,8 +15,10 @@ const ICONS = {
   },
   media_player: {
     playing: "pause.circle@2x.png",
-    idle: "homepod.and.homepodmini.fill@2x.png",
-    off: "homepod.and.homepodmini.fill@2x.png",
+    paused: "pause.circle@2x.png",
+    buffering: "pause.circle@2x.png",
+    idle: "homepod.and.homepodmini@2x.png",
+    off: "homepod.and.homepodmini@2x.png",
   }
 }
 
@@ -74,7 +76,7 @@ export class Button extends Component {
       >
         {!this.isScene &&
           <div className={`bg-black ${(this.state.state === "on" || this.state.state === "playing")?"bg-opacity-75" : "bg-opacity-50"} h-12 w-12 rounded-full flex items-center justify-center mr-2`}>
-            <img src={`/icons/${(ICONS[this.type] ?? ICONS.light)[this.state.state]}`} className="block h-6 w-6 object-contain" style={{
+            <img src={`/icons/${(this.props?.icons  || ICONS[this.type] || ICONS.light)[this.state.state]}`} className="block h-6 w-6 object-contain" style={{
               filter: this.state.state === "on" ? "brightness(0) saturate(100%) invert(77%) sepia(53%) saturate(2500%) hue-rotate(359deg) brightness(109%) contrast(102%)" : "",
             }}/>
           </div>

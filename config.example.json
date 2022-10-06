@@ -10,7 +10,15 @@
         { "id": "scene.bedroom_all_off" },
         { "id": "scene.bedroom_study", "name": "Studio" },
         { "id": "scene.bedroom_entertainment", "name": "Entertainment" },
-        { "id": "scene.bedroom_nightlight", "name": "Nightlight" }
+        { "id": "scene.bedroom_nightlight", "name": "Nightlight" },
+        {
+          "id": "input_boolean.home_guest_mode",
+          "name": "Ospiti",
+          "icons": {
+            "on": "",
+            "off": ""
+          }
+        }
       ]
     },
     {
